@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  4                                                                    04/27/2021 20:37:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 4.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1                RELAY BIT P1.0
+  0091                 2                LED BIT P1.1
+0000                   3                ORG 0000H
+0000 020030            4                LJMP START
+0030                   5                ORG 0030H
+0030 C290              6     START: CLR RELAY
+0032 D291              7            SETB LED
+0034 113E              8                ACALL DELAY
+0036 D290              9                SETB RELAY
+0038 C291             10                CLR LED
+003A 113E             11                ACALL DELAY
+003C 0130             12                AJMP START
+003E 7D00             13     DELAY: MOV R5,#0
+0040 7E00             14            MOV R6,#0
+0042 7F00             15                MOV R7,#0
+0044 DFFE             16     DLOOP: DJNZ R7,DLOOP
+0046 DEFC             17            DJNZ R6,DLOOP
+0048 DDFA             18                DJNZ R5,DLOOP
+004A 22               19                RET
+                      20                END
+A51 MACRO ASSEMBLER  4                                                                    04/27/2021 20:37:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003EH   A   
+DLOOP. . . . . . .  C ADDR   0044H   A   
+LED. . . . . . . .  B ADDR   0090H.1 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RELAY. . . . . . .  B ADDR   0090H.0 A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

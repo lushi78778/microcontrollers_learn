@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  6                                                                    04/27/2021 21:09:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 6.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 6.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1                     LED BIT P1.0      ;¸øP1.0ÆðÃû×Ö£¨Á¬µÄ·¢¹â¶þ½Ó¹Ü£©
+0000                   2                     ORG 0000H                 ;¶¨Òå³ÌÐòµÄÆðÊ¼µØÖ·
+0000 020037            3                     LJMP START                ;×öÌø×ªµ½0003H
+0003                   4                     ORG 0003H                 ;ÖÕ¶ËÈë¿ÚµØÖ·£¬ÖÐ¶Ï ¿ªÊ¼µØÖ·
+0003 020030            5                     LJMP INTERRUPT    ;Ìø×ªµ½ÕæÕµÄÖÕ¶ÏµØÖ·
+0030                   6                     ORG 0030H                 ;Ö÷³ÌÐò
+0030 C0D0              7     INTERRUPT: PUSH PSW               ;ÖÐ¶Ï£¬PSWÈëÕ»{±£»¤PSW£¨³ÌÐò×´Ì¬×Ö£©}
+0032 B290              8                CPL LED                ;Ñ°Ö·Î»£¨·¢¹â¶þ½Ó¹Ü£©È¡·´
+0034 D0D0              9                        POP PSW                ;PSW³öÕ»
+0036 32               10                        RETI                   ;´ÓÖÐ¶Ï³ÌÐòÖÐ·µ»Ø
+0037 C290             11     START:     CLR LED                ;clear LED ÈÃËûÃðµÆ
+0039 758801           12                MOV TCON, #01H ;Íâ²¿ÖÐ¶Ï0ÏÂ½µÑØ´¥·¢
+003C 75A881           13                        MOV IE,#81H    ;IEÔÊÐí²úÉúÖÐ¶Ï
+003F D2B2             14     INITIONAL: SETB P3.2      ;P3.2À­¸ß 
+0041 013F             15                AJMP INITIONAL ;P3.2±£³Ö¸ßµçÆ½
+                      16                        END
+A51 MACRO ASSEMBLER  6                                                                    04/27/2021 21:09:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+INITIONAL. . . . .  C ADDR   003FH   A   
+INTERRUPT. . . . .  C ADDR   0030H   A   
+LED. . . . . . . .  B ADDR   0090H.0 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+START. . . . . . .  C ADDR   0037H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

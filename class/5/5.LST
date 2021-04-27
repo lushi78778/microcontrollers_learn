@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  5                                                                    04/27/2021 20:42:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 5.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 5.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1                               KEY BIT P1.0
+  0091                 2                               LED BIT P1.1
+  0092                 3                               RELAY BIT P1.2
+0000                   4                               ORG 0000H
+0000 020030            5                               LJMP START
+0030                   6                               ORG 0030H
+0030 D290              7             START:    SETB KEY
+0032 A290              8             LOOP:     MOV C, KEY
+0034 9291              9                       MOV LED, C
+0036 9292             10                               MOV RELAY,C 
+0038 0132             11                               AJMP LOOP
+                      12                               END
+A51 MACRO ASSEMBLER  5                                                                    04/27/2021 20:42:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+KEY. . . . . . . .  B ADDR   0090H.0 A   
+LED. . . . . . . .  B ADDR   0090H.1 A   
+LOOP . . . . . . .  C ADDR   0032H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RELAY. . . . . . .  B ADDR   0090H.2 A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

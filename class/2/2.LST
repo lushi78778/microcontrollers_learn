@@ -1,0 +1,46 @@
+A51 MACRO ASSEMBLER  2                                                                    04/13/2021 21:27:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN 2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 2.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0000H
+0000 020030            2                     LJMP START
+0030                   3                     ORG 0030H
+0030 7401              4             START:  MOV A,#01H
+0032 7A08              5                     MOV R2,#8
+0034 F590              6                     MOV P1, A
+0036 F590              7             OUTPUT: MOV P1,A
+0038 23                8                     RL A
+0039 113F              9                     ACALL DELAY
+003B DAF9             10                     DJNZ R2,OUTPUT
+003D 0130             11                     AJMP START
+003F 7E00             12             DELAY:  MOV R6,#0
+0041 7F00             13                     MOV R7,#0
+0043 DEFE             14          DELAYLOOP: DJNZ R6,DELAYLOOP
+0045 DFFC             15                     DJNZ R7,DELAYLOOP
+0047 22               16                     RET
+                      17                     END
+                             
+A51 MACRO ASSEMBLER  2                                                                    04/13/2021 21:27:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003FH   A   
+DELAYLOOP. . . . .  C ADDR   0043H   A   
+OUTPUT . . . . . .  C ADDR   0036H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

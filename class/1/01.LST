@@ -1,0 +1,32 @@
+A51 MACRO ASSEMBLER  01                                                                   03/31/2021 12:05:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 01.OBJ
+ASSEMBLER INVOKED BY: D:\Program Files\keil\C51\BIN\A51.EXE 01.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0000H
+0000 020030            2                     LJMP START
+0030                   3                     ORG 0030H
+0030 74FE              4     START:  MOV  A, #0FEH
+0032 F590              5     OUTPIT: MOV P1,A
+                       6                     END
+A51 MACRO ASSEMBLER  01                                                                   03/31/2021 12:05:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+OUTPIT . . . . . .  C ADDR   0032H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
