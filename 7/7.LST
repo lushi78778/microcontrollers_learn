@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  7                                                                    04/27/2021 21:24:16 PAGE     1
+A51 MACRO ASSEMBLER  7                                                                    04/27/2021 21:40:43 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02
@@ -7,17 +7,18 @@ ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 7.asm SET(SMALL) DEBUG EP
 
 LOC  OBJ            LINE     SOURCE
 
-0000                   1                        ORG 0000H
-0000 020030            2                        LJMP START
-0030                   3                        ORG 0030H
-0030 758950            4     START:     MOV TMOD,#50H;0101,0000
-0033 758D00            5                MOV TH1,#0
-0036 758B00            6                        MOV TL1,#0
-0039 D28E              7                        SETB TR1
-003B 858B90            8             LOOP:  MOV P1,TL1
-003E 013B              9                    AJMP LOOP
-                      10                        END
-A51 MACRO ASSEMBLER  7                                                                    04/27/2021 21:24:16 PAGE     2
+                       1     ;¼ÆÊÆ÷ÊµÑé
+0000                   2                        ORG 0000H            ;¶¨Òå³ÌÐòµÄÆðÊ¼µØÖ·
+0000 020030            3                        LJMP START           ;×öÌø×ªµ½0003H
+0030                   4                        ORG 0030H            ;¿ªÊ¼µØÖ·
+0030 758950            5     START:     MOV TMOD,#50H        ;ÈÃ¶¨Ê±¼ÆÊÆ÷T1¹¤×÷ÔÚ¼ÆÊ·½Ê½ 0101£¬0001
+0033 758D00            6                MOV TH1,#0           ;TH1´ÓÁã¿ªÊ¼¼ÆÊ
+0036 758B00            7                        MOV TL1,#0           ;TL1´ÓÁã¿ªÊ¼¼ÆÊ
+0039 D28E              8                        SETB TR1                     ;´ò¿ª¶¨Ê±¼ÆÊÆ÷
+003B 858B90            9             LOOP:  MOV P1,TL1               ;µÈ´ÖÐ¶Ï¼ÆÊ, (TL1 0~255 ½øÎ»ÊÇ¸øTH1)
+003E 013B             10                    AJMP LOOP                ;Ò»Ö±Ñ­»·
+                      11                        END                                     `
+A51 MACRO ASSEMBLER  7                                                                    04/27/2021 21:40:43 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
