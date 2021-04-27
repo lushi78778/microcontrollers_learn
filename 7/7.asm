@@ -1,0 +1,10 @@
+		   ORG 0000H
+		   LJMP START
+		   ORG 0030H
+START:     MOV TMOD,#50H;0101,0000
+           MOV TH1,#0
+		   MOV TL1,#0
+		   SETB TR1
+	LOOP:  MOV P1,TL1
+	       AJMP LOOP
+		   END
