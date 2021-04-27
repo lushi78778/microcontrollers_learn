@@ -8,4 +8,4 @@ START:     MOV TMOD,#50H	;让定时计数器T1工作在计数方式 0101，0001
 		   SETB TR1			;打开定时计数器
 	LOOP:  MOV P1,TL1		;等待中断计数, (TL1 0~255 进位是给TH1)
 	       AJMP LOOP		;一直循环
-		   END					   `
+		   END					  
