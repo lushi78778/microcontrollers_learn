@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  8                                                                    05/11/2021 21:17:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 8.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 8.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             ;¶¨Ê±Æ÷ÊÔÑé
+  2710                 2                 TICK       EQU  10000      ;10000µÄ¶þ½øÖÆÎª 10011100010000£¬Ê®Áù½øÖÆÎª2710   ti
+                             ck = 10000
+  009C                 3             T100uS     EQU  256-100    ;T100uS = 256-100 
+  0030                 4             C100uS     EQU  30H        ;*C100uS = 30H    
+  0090                 5             LED       BIT   P1.0       ;P1.0ÊÇLED
+0000                   6             ORG       0000H                    
+0000 02004B            7             LJMP      START            ;Ìø×ªµ½¿ªÊ¼    
+000B                   8             ORG       000BH               
+000B 020030            9             LJMP      T0INT                
+0030                  10             ORG       0030H
+0030 C0D0             11     T0INT:  PUSH   PSW                 ;±£»¤³ÌÐò×´Ì¬×Ö    
+0032 E531             12             MOV    A, C100uS+1         ;½«31HÀïÃæÊ¸øA£¬¼´10000µÄµÍ8Î»¸øA
+0034 7002             13             JNZ    GOON                                ;ÅÐ¶ÏÊÇ²»ÊÇ0£¬²»ÊÇ0->goon
+0036 1530             14             DEC    C100uS                 
+0038                  15     GOON: 
+0038 1531             16             DEC    C100uS+1            ;½«31HÀïÃæÊ¼õ1£¬¼´10000µÄµÍ8Î»¼õ1
+003A E530             17             MOV    A, C100uS           ;½«30HÀïÃæÊ¸øA
+003C 4531             18             ORL    A, C100uS+1         ;10000¸ß8Î»ºÍµÍ8Î»È¡»ò£¬ÅÐ¶ÏÊÇ·ñ¼ÆÊµ½10000ÁË
+003E 7008             19             JNZ    EXIT                
+0040 753027           20             MOV   C100uS, #HIGH(TICK)  
+0043 753110           21             MOV   C100uS+1, #LOW(TICK)
+0046 B290             22             CPL   LED             
+0048                  23     EXIT:
+0048 D0D0             24             POP   PSW
+004A 32               25             RETI
+004B                  26     START:
+004B 758902           27             MOV    TMOD, #02H          ;¹¤×÷·½Ê½¼Ä´æÆ÷£¬T0¹¤×÷ÔÚ·½Ê½¶þ   
+004E 758C9C           28             MOV    TH0, #T100uS           
+0051 758A9C           29             MOV    TL0, #T100uS
+0054 75A882           30             MOV    IE, #10000010B      ;ÖÐ¶Ï£¬¿´Êé  
+0057 D28C             31             SETB   TR0                 ;¶¨Ê±¼ÆÊÆ÷´ò¿ª¼ÆÊ±   
+0059 C290             32             CLR    LED                                 ;clear ¶þ¼«¹Ü
+005B 753027           33             MOV    C100uS, #HIGH(TICK) ;30HÀïÃæ´æ·Å27H£¬10000µÄ¸ß8Î»
+005E 753110           34             MOV    C100uS+1, #LOW(TICK);31HÀïÃæ´æ·Å10H ,10000µÄµÍ8Î»
+0061 0161             35     LOOP:   AJMP   LOOP
+                      36             END 
+A51 MACRO ASSEMBLER  8                                                                    05/11/2021 21:17:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+C100US . . . . . .  N NUMB   0030H   A   
+EXIT . . . . . . .  C ADDR   0048H   A   
+GOON . . . . . . .  C ADDR   0038H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LED. . . . . . . .  B ADDR   0090H.0 A   
+LOOP . . . . . . .  C ADDR   0061H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+START. . . . . . .  C ADDR   004BH   A   
+T0INT. . . . . . .  C ADDR   0030H   A   
+T100US . . . . . .  N NUMB   009CH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TICK . . . . . . .  N NUMB   2710H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
