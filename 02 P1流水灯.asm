@@ -3,8 +3,8 @@
 				LJMP START
 				ORG 0030H
 	START:  	MOV A,#01H			;0000 0001
-				MOV R2,#8			;
-	OUTPUT:		MOV P1,A
+				MOV R2,#8			;1000
+	OUTPUT:		MOV P1,A			;
 				RL A
 				ACALL DELAY
 				DJNZ R2,OUTPUT
