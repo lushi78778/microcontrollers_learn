@@ -10,7 +10,7 @@
                 ORG       0030H
         T0INT:  PUSH   PSW                 ;保护程序状态字    
                 MOV    A, C100uS+1         ;将31H里面数给A，即10000的低8位给A
-                JNZ    GOON				   ;判断是不是0，不是0->goon
+                JNZ    GOON		   ;判断是不是0，不是0->goon
                 DEC    C100uS                 
         GOON: 
                 DEC    C100uS+1	           ;将31H里面数减1，即10000的低8位减1

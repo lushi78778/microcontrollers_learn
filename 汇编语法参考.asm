@@ -50,7 +50,7 @@
     ;5.Âß¼­ÔËËã
     CLR  A                  ; A¡û00H 
     CPL  A                  ; A¡û(   ) 
-    RL   A
+    RL   A                  ;Ñ­»·×óÒÆ
     RR A
     RLC A
     RRC A
