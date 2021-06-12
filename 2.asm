@@ -1,18 +1,17 @@
+				;用P1口做输出口，编写程序使发光二极管从右到左轮流循环点亮。
 				ORG 0000H
 				LJMP START
 				ORG 0030H
-		START:  MOV A,#01H
+	START:  	MOV A,#01H			;0000 0001
 				MOV R2,#8
-				MOV P1, A
-		OUTPUT:	MOV P1,A
+	OUTPUT:		MOV P1,A
 				RL A
 				ACALL DELAY
 				DJNZ R2,OUTPUT
 				AJMP START
-		DELAY:  MOV R6,#0
+	DELAY:  	MOV R6,#0
 				MOV R7,#0
 	DELAYLOOP: 	DJNZ R6,DELAYLOOP
 				DJNZ R7,DELAYLOOP
 				RET
 				END
-

@@ -1,0 +1,12 @@
+			  KEY BIT P1.0
+			  LED BIT P1.1
+			  RELAY BIT P1.2
+			  ORG 0000H
+			  LJMP START
+			  ORG 0030H
+	START:    SETB KEY
+	LOOP:     MOV C, KEY
+	          MOV LED, C
+			  MOV RELAY,C 
+			  AJMP LOOP
+			  END

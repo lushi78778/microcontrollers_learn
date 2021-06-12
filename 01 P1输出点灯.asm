@@ -1,0 +1,7 @@
+			;P1输出点灯
+			ORG 0000H
+			LJMP START
+			ORG 0030H
+	START:  MOV  A, #0FEH   ;1111 1110 七个亮，一个灭
+	OUTPIT: MOV P1,A		;P1.0输出
+			END
